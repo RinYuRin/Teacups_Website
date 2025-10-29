@@ -79,7 +79,7 @@ const Contact = () => {
     const rating = form.querySelector("input[name='rating']")?.value || undefined;
 
     // backend endpoint (use Vite env if set, otherwise default to localhost)
-    const endpoint = import.meta?.env?.VITE_REVIEWS_API || 'http://localhost:5001/api/reviews';
+    const endpoint = import.meta?.env?.VITE_REVIEWS_API || 'https://teacups-website-backend.onrender.com/api/reviews';
 
     const payload = {
       productId,
