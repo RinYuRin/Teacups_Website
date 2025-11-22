@@ -55,7 +55,8 @@ const Navbar = () => {
                             title="Download App"
                             style={{ 
                                 display: 'flex', 
-                                alignItems: 'center', 
+                                alignItems: 'center',
+                                justifyContent: 'center', 
                                 fontSize: '1.2rem', 
                                 transform: 'translateY(2px)' 
                             }}
