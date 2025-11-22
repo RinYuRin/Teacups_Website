@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { FaBars, FaTimes } from 'react-icons/fa';
+// 1. Import FaDownload here
+import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
@@ -24,8 +25,6 @@ const Navbar = () => {
         { to: "contact", name: "Contact" }
     ];
 
-    // We'll render a separate Menu link (opens /menu.html) alongside the scroll links
-
     return (
         <nav className={scrolled ? 'navbar scrolled' : 'navbar'}>
             <div className="container nav-container">
@@ -35,7 +34,6 @@ const Navbar = () => {
                 <ul className={nav ? 'nav-menu active' : 'nav-menu'}>
                     {navLinks.map((link) => (
                         <li className="nav-item" key={link.to}>
-                            {/* Use absolute anchor so link works from any page (e.g., /menu.html -> /#about) */}
                             <a href={`/#${link.to}`} className="nav-link" onClick={() => setNav(false)}>
                                 {link.name}
                             </a>
@@ -44,6 +42,28 @@ const Navbar = () => {
                     <li className="nav-item">
                         <a href="/menu.html" className="nav-link" onClick={() => setNav(false)}>Menu</a>
                     </li>
+                    
+                    
+                    {/* 2. New Download Link Section */}
+                    <li className="nav-item">
+                        <a 
+                            href="https://github.com/RinYuRin/TeacupsMobile/releases/tag/v1.1" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="nav-link" 
+                            onClick={() => setNav(false)}
+                            title="Download App"
+                            style={{ 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                fontSize: '1.2rem', 
+                                transform: 'translateY(2px)' 
+                            }}
+                        >
+                            <FaDownload /> 
+                        </a>
+                    </li>
+
                 </ul>
                 <div onClick={handleNav} className="nav-icon">
                     {nav ? <FaTimes /> : <FaBars />}
